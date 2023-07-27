@@ -207,3 +207,30 @@ public class YmlMerger
     }
 
 }
+#pip install pyyaml
+        import yaml
+
+        def yaml_loader(filepath):
+        #Loads a yaml file
+        with open(filepath,'r')as file_descriptor:
+        data = yaml.load(file_descriptor)
+        return data
+
+        def yaml_dump(filepath,data):
+        with open(filepath,"w") as file_descriptor:
+        yaml.dump(data, file_descriptor)
+
+        if __name__ == "__main__":
+        file_path1 = "source.yaml"
+        file_path2 = "sample.yaml"
+
+        # read both yaml files as Dictionaries
+        data1 = yaml_loader(file_path1)
+        data2 = yaml_loader(file_path2)
+
+        # Merge the dictionaries
+        data1.update(data2) # Feel free to reverse the order of data1 and data2 and then update the dumper below
+
+        # Write the merged dictionary to a new file
+        with open("temp.yml", 'w') as yaml_output:
+        yaml_dump(data1, yaml_output, default_flow_style=False, explicit_start=True, allow_unicode=True )
