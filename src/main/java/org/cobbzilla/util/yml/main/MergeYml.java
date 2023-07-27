@@ -22,6 +22,10 @@ public class MergeYml {
 
         List<Path> filesToMerge = new ArrayList<>();
 
+
+
+
+
         //Arrays.asList(args).stream().map(Paths::get).collect(Collectors.toSet());
         for (String arg : args) {
             filesToMerge.add(Paths.get(arg));
@@ -33,3 +37,5 @@ public class MergeYml {
     }
 
 }
+
+
